@@ -21,14 +21,6 @@ def main(contest_number: str) -> None:
     os.mkdir(contest_path)
     print(f"INFO: sucessfully create a directory at {contest_path}")
 
-    for filename in ["A.cpp", "B.cpp"]:
-        filepath = contest_path + "/" + filename
-        with open(filepath,"w") as f:
-            f.write(CPP_SOURCE)
-        print(f"INFO: sucessfully create a file at {filepath}")
-
-
-
 
 if __name__ == "__main__":
     if len(sys.argv) <= 1:
