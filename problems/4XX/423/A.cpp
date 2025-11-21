@@ -1,15 +1,15 @@
 #include <iostream>
 using namespace std;
 
-int X, C;
+long long X, C;
 
 int main() {
   cin >> X >> C;
 
-  int ans = 0;
-  for (int i=0; i<X; i+=1000) {
-    int cost = C * (i/1000);
-    if (cost + i < X) ans = i;
+  long long ans = 0;
+  for (long long i=0; i<=X; i+=1000) {
+    long long cost = C * (i / 1000);
+    if (cost + i <= X) ans = i;
   }
   cout << ans << endl;
   return 0;
