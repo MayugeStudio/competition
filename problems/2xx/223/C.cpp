@@ -18,8 +18,13 @@ int main() {
 
   double ans = 0;
   for (int i=0; i<n; ++i) {
-    ans += min(a[i], t * b[i]);
-    if (t > 0) t -= a[i]/b[i];
+    double nt = a[i] / b[i];
+    if (nt > t) {
+      ans += b[i] * t;
+      break;
+    }
+    ans += a[i];
+    t -= nt;
   }
 
   cout << fixed << setprecision(15);
