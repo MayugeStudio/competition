@@ -18,9 +18,9 @@ int main() {
 
   auto nx = X, ny = Y;
   sort(nx.begin(), nx.end());
-  nx.erase(unique(nx.begin(), nx.end()));
+  nx.erase(unique(nx.begin(), nx.end()), nx.end());
   sort(ny.begin(), ny.end());
-  ny.erase(unique(ny.begin(), ny.end()));
+  ny.erase(unique(ny.begin(), ny.end()), ny.end());
 
   for (int i=0; i<N; ++i) {
     int xres = lower_bound(nx.begin(), nx.end(), X[i]) - nx.begin();
