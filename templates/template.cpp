@@ -9,7 +9,6 @@ using pii = pair<int, int>;
 using pll = pair<long long, long long>;
 
 // Macros
-#define rep(i, x, limit) for (int i=(int)x; (int)i<limit; ++i)
 #define all(x)  x.begin(),  x.end()
 #define rall(x) x.rbegin(), x.rend()
 #define Yes cout << "Yes" << endl
