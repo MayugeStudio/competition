@@ -8,9 +8,9 @@ vector<int> v;
 int main() {
   cin >> l1 >> r1 >> l2 >> r2;
   int l = max(r1, r2);
-  v.resize(l-1);
+  v.resize(101);
 
-  for (int i=0; i<=l-2; ++i) {
+  for (int i=0; i<=100; ++i) {
     if (l1 <= i && i <= r1) {
       v[i]++;
     }
@@ -19,10 +19,11 @@ int main() {
     }
   } 
   int ans = 0;
-  for (int i=0; i<=l-2; ++i) {
+  for (int i=0; i<=100; ++i) {
     if (v[i] == 2) ans++;
   }
-  cout << ans << endl;
+  if (ans == 0) cout << 0 << endl;
+  else cout << ans -1 << endl;
   return 0;
 }
 
