@@ -4,17 +4,15 @@
 using namespace std;
 
 string s, t;
-vector<string> v;
 int main() {
   cin >> s >> t;
 
   for (int w=1; w<s.size(); ++w) {
     for (int c=0; c<w; ++c) {
-      v.clear();
-      string a;
+      string a = "";
 
-      for (int i=0; i<=s.size(); i+=w) {
-        if (i == c) a += s[c];
+      for (int i=c; i<s.size(); i+=w) {
+        a += s[i];
       }
 
       if (t == a) {
