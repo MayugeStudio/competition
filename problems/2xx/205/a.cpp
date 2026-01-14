@@ -1,8 +1,10 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
-  int a, b; cin >> a >> b;
+  double a, b; cin >> a >> b;
+  cout << setprecision(20);
   if (a == 0 || b == 0) {
     cout << 0 << endl;
   } else {

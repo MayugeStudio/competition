@@ -1,66 +1,22 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
+using ll = long long;
+
+ll pow(ll x, ll y) {
+  if (y == 1) return x;
+  return x * x;
+}
 
 int main() {
-  int a, b, c; cin >> a >> b >> c;
+  ll a, b, c; cin >> a >> b >> c;
 
-  if (abs(a) == abs(b) && c%2 == 0) {
-    cout << "=" << endl;
-    return 0;
-  }
+  if (c%2 == 0) c = 2;
+  else c = 1;
 
-  if (a > 0 && b > 0) {
-    if (a > b) {
-      cout << ">" << endl;
-    } else {
-      cout << "<" << endl;
-    }
-    return 0;
-  }
-
-  if (a < 0 && b > 0) {
-    if (c%2 == 0) {
-      if (-1 * a > b) {
-        cout << ">" << endl;
-      } else {
-        cout << "<" << endl;
-      }
-    } else {
-      cout << "<" << endl;
-    }
-    return 0;
-  }
-
-  if (a > 0 && b < 0) {
-    if (c%2 == 0) {
-      if (a > -1 * b) {
-        cout << ">" << endl;
-      } else {
-        cout << "<" << endl;
-      }
-    } else {
-      cout << ">" << endl;
-    }
-    return 0;
-  }
-
-  if (a < 0 && b < 0) {
-    if (c%2 == 0) {
-      if (a < b) {
-        cout << ">" << endl;
-      } else {
-        cout << "<" << endl;
-      }
-    } else {
-      if (a < b) {
-        cout << "<" << endl;
-      } else {
-        cout << ">" << endl;
-      }
-    }
-    return 0;
-  }
+  if (pow(a, c) == pow(b, c)) cout << "=" << endl;
+  else if (pow(a, c) > pow(b, c)) cout << ">" << endl;
+  else cout << "<" << endl;
 
   return 0;
 }
