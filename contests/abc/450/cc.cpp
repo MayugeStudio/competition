@@ -12,19 +12,31 @@ int dxs[4] = { 1, -1, 0,  0};
 int dys[4] = { 0, 0,  1, -1};
 
 bool dfs(ll r, ll c) {
-  v[r][c] = true;
-  bool ok = (0<r) && (r<h-1) && (0<c) && (c<w-1);
-
-  for (int i=0; i<4; ++i) {
-    int ny = r + dys[i];
-    int nx = c + dxs[i];
-
-    if (ny < 0 || ny >= h || nx < 0 || nx >= w) continue;
-    if (s[ny][nx] == '#') continue;
-    if (v[ny][nx]) continue;
-    ok &= dfs(ny, nx);
+  if (s[r][c] == '#') {
+    return true;
   }
 
+  if (v[r][c]) {
+    return true;
+  }
+
+  if (r == 0 || r == h-1 || c == 0 || c == w-1) {
+    return false;
+  }
+
+  v[r][c] = true;
+  bool ok = true;
+  for (int i=0; i<4; ++i) {
+    int nx = c + dxs[i];
+    int ny = r + dys[i];
+
+    if (ny > 0  &&
+        ny < h-1 &&
+        nx > 0  &&
+        nx < w-1) {
+      ok &= dfs(ny, nx);
+    }
+  }
   return ok;
 }
 
@@ -39,7 +51,6 @@ void debug() {
     }
     cout << endl;
   }
-  cout << endl;
 }
 
 int main() {
@@ -51,9 +62,10 @@ int main() {
   ll ans = 0;
   for (int r=0; r<h; ++r) {
     for (int c=0; c<w; ++c) {
-      if (s[r][c] == '.') {
-        if (v[r][c]) continue;
-        if (dfs(r, c)) ans++;
+      if (v[r][c]) continue;
+      if (s[r][c] == '#') continue;
+      if (dfs(r, c)) {
+        ans++;
       }
     }
   }
@@ -61,4 +73,5 @@ int main() {
 
   return 0;
 }
+
 
