@@ -3,31 +3,39 @@
 using namespace std;
 using ll = long long;
 
+int sign(ll x) {
+  if (x > 0) {
+    return 1;
+  } else {
+    return -1;
+  }
+}
+
 int main() {
   ll n; cin >> n;
   vector<ll> l(n);
-  for (int i=0; i<n; ++i) cin >> l[i];
-  for (int i=0; i<n; ++i) l[i] *= 10;
-
-  ll ans = 0;
-  ll s = 5;
   for (int i=0; i<n; ++i) {
-    if (s < 0 && s + l[i] >= 0) {
-      ans++;
-      s += l[i];
-    } else if (s > 0 && s - l[i] <= 0) {
-      ans++;
-      s -= l[i];
-    } else {
-      if (abs(s - l[i]) < abs(s + l[i])) {
-        s -= l[i];
-      } else {
-        s += l[i];
-      }
-    }
+    cin >> l[i];
+    l[i] *= 2;
   }
-  
-  cout << ans << endl;
-  
+  ll best = 0;
+  for (ll i=0; i<(1LL<<n); ++i) {
+    ll pos = 1;
+    ll cur = 0;
+    for (ll j=0; j<n; ++j) {
+      ll npos = pos;
+      if (i&(1L<<j)) {
+        npos += l[j];
+      } else {
+        npos -= l[j];
+      }
+      if (sign(pos)*sign(npos) < 0) {cur++;};
+      pos = npos;
+    }
+    if (cur > best) best = cur;
+  }
+
+  cout << best << endl;
+
   return 0;
 }
