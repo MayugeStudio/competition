@@ -19,7 +19,7 @@ string convert(string x) {
   string t;
   for (int i=0; i<x.size(); ++i) {
     t += x[i];
-    if ((int)t.size() == 4 && t.substr(t.size() - 4, 4) == "(xx)") {
+    if ((int)t.size() >= 4 && t.substr(t.size() - 4, 4) == "(xx)") {
       t.erase(t.end()-4, t.end());
       t += "xx";
     }
