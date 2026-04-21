@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 # 使い方: ./check_cpp_pair.sh 対象フォルダ
+# 説明: フォルダを指定すると、そのフォルダの中を再帰的に探索して、
+# A問題のファイルとB問題のファイルがないものを探して出力します。
+
 TARGET_DIR="$1"
 
 missing_dirs=()
