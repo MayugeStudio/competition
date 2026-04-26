@@ -1,1 +1,12 @@
-progress: 9/90
+progress: 10/90
+
+02.cpp
+04.cpp
+07.cpp
+10.cpp
+14.cpp
+16.cpp
+27.cpp
+72.cpp
+78.cpp
+84.cpp
