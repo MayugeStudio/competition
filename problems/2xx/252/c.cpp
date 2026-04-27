@@ -1,38 +1,33 @@
 #include <iostream>
+#include <algorithm>
 #include <string>
 #include <vector>
 using namespace std;
 
-int length(string s, int n) {
-  for (int i=0; i<s.size(); ++i) {
-    if (s[i] == '0'+n) {
-      return i;
-    }
-  }
-  return -1;
-}
+
+int cnt[10][10];
 
 int main() {
   int n; cin >> n;
-  vector<string> vs(n);
+  vector<string> s(n);
 
-  for (int i=0; i<n; ++i) cin >> vs[i];
+  for (int i=0; i<n; ++i) cin >> s[i];
 
-  vector<vector<int>> mat(10, vector<int>(n));
-  // すべての数字について
-  for (int i=0; i<10; ++i) {
-    for (int j=0; j<n; ++j) {
-      mat[i][j] = length(vs[i], j+1);
+  for (int i=0; i<n; ++i) {
+    for (int j=0; j<10; ++j) {
+      cnt[s[i][j]-'0'][j] += 1;
     }
   }
 
-  vector<int> arr(10, 0);
+  int ans = 1000;
   for (int i=0; i<10; ++i) {
-    for (int j=0; j<n; ++j) {
-      arr[i] = 
+    int mx = 0;
+    for (int j=0; j<10; ++j) {
+      mx = max(mx, 10*(cnt[i][j]-1)+j);
     }
+    ans = min(ans, mx);
   }
-  cout << res << endl;
+  cout << ans << endl;
 
   return 0;
 }
