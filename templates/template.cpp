@@ -1,5 +1,6 @@
 // Headers
 #include <bits/stdc++.h>
+#include <atcoder/all>
 using namespace std;
 
 // Type definitions
