@@ -1,0 +1,3 @@
+# Make clangd use GCC (g++-16) as its driver
+CompileFlags:
+  Compiler: /opt/homebrew/bin/g++-16
