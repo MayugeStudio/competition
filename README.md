@@ -9,6 +9,6 @@ This repository contains all of the knowledge I have for solving competitive pro
 
 ## Links
 
-- Atcoder: https://atcoder.jp/users/MayugeS
+- AtCoder: https://atcoder.jp/users/MayugeS
 - Personal Blog: https://blog.kawababa.com
 
